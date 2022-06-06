@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/logout', function () {
+    Session::forget('user');
+    return redirect('/admin');
 });
+
+Route::view('/admin/dashboard', 'dashboard');
+
+Route::view('/admin', "login");
+
+Route::post('/admin', [UserController::class, 'login']);
