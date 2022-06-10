@@ -1,13 +1,4 @@
-<?php 
-  use Illuminate\Support\Str;
-  use App\Models\SearchCustomer;
-  use App\Models\ReportCopy;
-
-
-?>
 {{-- <body class="hold-transition sidebar-mini layout-fixed"> --}}
-<div class="wrapper">
-
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -27,7 +18,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">FVSI</span>
+      <span class="brand-text font-weight-light">FVIS</span>
     </a>
 
     <!-- Sidebar -->
@@ -179,7 +170,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_gallery" class="nav-link">
                   <p>
                     Manage Gallery
                   </p>
@@ -197,9 +188,27 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_partner" class="nav-link">
                   <p>
                     Manage Partners
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item menu-close">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-thumbs-up"></i>
+              <p>
+                Our Service
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/manage_service" class="nav-link">
+                  <p>
+                    Manage Service
                   </p>
                 </a>
               </li>
@@ -215,7 +224,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_project" class="nav-link">
                   <p>
                     Manage Projects
                   </p>
@@ -233,7 +242,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_user_list" class="nav-link">
                   <p>
                     All Users
                   </p>
@@ -258,14 +267,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_investment_block" class="nav-link">
                   <p>
                     Manage Investment Blocks
                   </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_car" class="nav-link">
                   <p>
                     Agency Benifits Car
                   </p>
@@ -283,7 +292,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_testimonial" class="nav-link">
                   <p>
                     Manage Testimonial
                   </p>
@@ -301,7 +310,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_membership_plan" class="nav-link">
                   <p>
                     Membership Plans
                   </p>
@@ -362,7 +371,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_free_consultation" class="nav-link">
                   <p>
                     Free Consultation
                   </p>
@@ -380,7 +389,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_contact" class="nav-link">
                   <p>
                     Contact Details
                   </p>
@@ -398,7 +407,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_enquiry" class="nav-link">
                   <p>
                     Manage Enquiry
                   </p>
@@ -416,7 +425,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_acceptance" class="nav-link">
                   <p>
                     Generate A-Code
                   </p>
@@ -434,7 +443,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_memberid" class="nav-link">
                   <p>
                     Generate MemberId
                   </p>
@@ -446,15 +455,15 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-question-circle"></i>
               <p>
-                Newslatter
+                Newsletter
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_newsletter" class="nav-link">
                   <p>
-                    Manage Newslatter
+                    Manage Newsletter
                   </p>
                 </a>
               </li>
