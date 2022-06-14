@@ -200,5 +200,84 @@ Route::post('manage_user_list/change_status_user_list/{id}', [MainController::cl
 Route::get('/admin/manage_user_list/delete_user_list/{id}', [MainController::class, 'delete_user_list']);
 
 
+Route::get('/admin/manage_banner', [MainController::class, 'show_banner']);
 
+Route::get('/admin/add_banner', [MainController::class, 'add_banner_show']);
+
+Route::post('/admin/add_banner', [MainController::class, 'add_banner']);
+
+Route::get('admin/manage_banner/update_banner/{id}', [MainController::class, 'update_banner_show']);
+
+Route::post('/admin/manage_banner/update_banner', [MainController::class, 'update_banner']);
+
+Route::get('/admin/manage_banner/delete_banner/{id}', [MainController::class, 'delete_banner']);
+
+
+Route::get('/admin/manage_social', [MainController::class, 'show_social']);
+
+Route::get('/admin/add_social', [MainController::class, 'add_social_show']);
+
+Route::post('/admin/add_social', [MainController::class, 'add_social']);
+
+Route::get('admin/manage_social/update_social/{id}', [MainController::class, 'update_social_show']);
+
+Route::post('/admin/manage_social/update_social', [MainController::class, 'update_social']);
+
+Route::get('/admin/manage_social/delete_social/{id}', [MainController::class, 'delete_social']);
+
+
+
+Route::get('/admin/manage_staff', [MainController::class, 'show_staff']);
+
+Route::get('/admin/add_staff', [MainController::class, 'add_staff_show']);
+
+Route::post('/admin/add_staff', [MainController::class, 'add_staff']);
+
+Route::get('admin/manage_staff/update_staff/{id}', [MainController::class, 'update_staff_show']);
+
+Route::post('/admin/manage_staff/update_staff', [MainController::class, 'update_staff']);
+
+Route::get('/admin/manage_staff/delete_staff/{id}', [MainController::class, 'delete_staff']);
+
+
+
+Route::get('/admin/manage_membership', [MainController::class, 'show_membership']);
+
+Route::get('/admin/manage_membership/delete_membership/{id}', [MainController::class, 'delete_membership']);
+
+
+
+
+Route::get('admin/manage_membership/update_membership_perinfo/{id}', [MainController::class, 'update_membership_perinfo_show']);
+
+Route::post('/admin/manage_membership/update_membership_perinfo', [MainController::class, 'update_membership_perinfo']);
+
+
+
+
+Route::get('admin/manage_membership/update_membership_cominfo/{id}', [MainController::class, 'update_membership_cominfo_show']);
+
+Route::post('/admin/manage_membership/update_membership_cominfo', [MainController::class, 'update_membership_cominfo']);
+
+
+
+
+
+Route::get('admin/manage_membership/update_membership_cisinfo/{id}', [MainController::class, 'update_membership_cisinfo_show']);
+
+Route::post('/admin/manage_membership/update_membership_cisinfo', [MainController::class, 'update_membership_cisinfo']);
+
+
+
+
+
+Route::get('admin/manage_membership/update_membership_pqfinfo/{id}', [MainController::class, 'update_membership_pqfinfo_show']);
+
+Route::post('/admin/manage_membership/update_membership_pqfinfo', [MainController::class, 'update_membership_pqfinfo']);
+
+
+
+Route::get('admin/manage_membership/update_membership_ilrfinfo/{id}', [MainController::class, 'update_membership_ilrfinfo_show']);
+
+Route::post('/admin/manage_membership/update_membership_ilrfinfo', [MainController::class, 'update_membership_ilrfinfo']);
 

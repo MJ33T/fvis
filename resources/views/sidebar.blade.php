@@ -52,7 +52,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_banner" class="nav-link">
                   <p>
                     Manage Banner
                   </p>
@@ -60,7 +60,7 @@
               </li>
               
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_social" class="nav-link">
                   <p>
                     Manage Social Links
                   </p>
@@ -84,7 +84,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_staff" class="nav-link">
                   <p>
                     Manage Staff
                   </p>
@@ -260,13 +260,6 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <p>
-                    Manage Pages
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="/admin/manage_investment_block" class="nav-link">
                   <p>
                     Manage Investment Blocks
@@ -335,7 +328,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/manage_membership" class="nav-link">
                   <p>
                     Membership User
                   </p>

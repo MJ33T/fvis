@@ -14,7 +14,7 @@ class ImageController extends Controller
             return view('gallery', ['gallerys'=>$gallerys]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function add_image_show(){
@@ -22,7 +22,7 @@ class ImageController extends Controller
             return view('add_image');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -43,7 +43,7 @@ class ImageController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -54,7 +54,7 @@ class ImageController extends Controller
             return view('update_image', ['image'=> $image]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -75,7 +75,7 @@ class ImageController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -88,7 +88,7 @@ class ImageController extends Controller
             return redirect('admin/manage_gallery');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 }

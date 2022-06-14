@@ -17,7 +17,12 @@ use App\Models\MemberId;
 use App\Models\Testimonials;
 use App\Models\Acceptance;
 use App\Models\UserList;
-
+use App\Models\Banner;
+use App\Models\Social;
+use App\Models\ManageStaff;
+use App\Models\MembershipUser;
+use App\Models\CisData;
+use App\Models\PqfData;
 
 
 
@@ -30,7 +35,7 @@ class MainController extends Controller
             return view('manage_partner', ['partners'=>$partners]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -39,7 +44,7 @@ class MainController extends Controller
             return view('add_partner');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -62,7 +67,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function update_partner_show($id){
@@ -72,7 +77,7 @@ class MainController extends Controller
             return view('update_partner', ['partner'=> $partner]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -95,7 +100,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -108,7 +113,7 @@ class MainController extends Controller
             return redirect('admin/manage_partner');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -120,7 +125,7 @@ class MainController extends Controller
             return view('manage_service', ['services'=>$services]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -129,7 +134,7 @@ class MainController extends Controller
             return view('add_service');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -150,7 +155,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function update_service_show($id){
@@ -160,7 +165,7 @@ class MainController extends Controller
             return view('update_service', ['service'=> $service]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -181,7 +186,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -194,7 +199,7 @@ class MainController extends Controller
             return redirect('admin/manage_service');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -206,7 +211,7 @@ class MainController extends Controller
             return view('manage_project', ['projects'=>$projects]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -215,7 +220,7 @@ class MainController extends Controller
             return view('add_project');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -238,7 +243,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function update_project_show($id){
@@ -248,7 +253,7 @@ class MainController extends Controller
             return view('update_project', ['project'=> $project]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -269,7 +274,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -282,7 +287,7 @@ class MainController extends Controller
             return redirect('admin/manage_project');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -295,7 +300,7 @@ class MainController extends Controller
             return view('manage_car', ['cars'=>$cars]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -304,7 +309,7 @@ class MainController extends Controller
             return view('add_car');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -325,7 +330,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function update_car_show($id){
@@ -335,7 +340,7 @@ class MainController extends Controller
             return view('update_car', ['car'=> $car]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -356,7 +361,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -369,7 +374,7 @@ class MainController extends Controller
             return redirect('admin/manage_car');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -380,7 +385,7 @@ class MainController extends Controller
             return view('manage_membership_plan', ['msps'=>$msps]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -389,7 +394,7 @@ class MainController extends Controller
             return view('add_membership_plan');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -408,7 +413,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function update_membership_plan_show($id){
@@ -418,7 +423,7 @@ class MainController extends Controller
             return view('update_membership_plan', ['msp'=> $msp]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -437,7 +442,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -450,7 +455,7 @@ class MainController extends Controller
             return redirect('admin/manage_membership_plan');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -461,7 +466,7 @@ class MainController extends Controller
             return view('manage_investment_block', ['msps'=>$ibs]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -470,7 +475,7 @@ class MainController extends Controller
             return view('add_investment_block');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -491,7 +496,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function update_investment_block_show($id){
@@ -501,7 +506,7 @@ class MainController extends Controller
             return view('update_investment_block', ['msp'=> $msp]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -522,7 +527,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -534,7 +539,7 @@ class MainController extends Controller
             return redirect('admin/manage_investment_block');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -545,7 +550,7 @@ class MainController extends Controller
             return view('manage_contact', ['msps'=>$ibs]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -554,7 +559,7 @@ class MainController extends Controller
             return view('add_contact');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -575,7 +580,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function update_contact_show($id){
@@ -585,7 +590,7 @@ class MainController extends Controller
             return view('update_contact', ['msp'=> $msp]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -606,7 +611,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -618,7 +623,7 @@ class MainController extends Controller
             return redirect('admin/manage_contact');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -629,7 +634,7 @@ class MainController extends Controller
             return view('manage_free_consultation', ['msps'=>$ibs]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -638,7 +643,7 @@ class MainController extends Controller
             return view('add_free_consultation');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -655,7 +660,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function update_free_consultation_show($id){
@@ -665,7 +670,7 @@ class MainController extends Controller
             return view('update_free_consultation', ['msp'=> $msp]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -686,7 +691,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -698,7 +703,7 @@ class MainController extends Controller
             return redirect('admin/manage_free_consultation');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -709,7 +714,7 @@ class MainController extends Controller
             return view('manage_enquiry', ['msps'=>$ibs]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -718,7 +723,7 @@ class MainController extends Controller
             return view('add_enquiry');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -734,7 +739,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function update_enquiry_show($id){
@@ -744,7 +749,7 @@ class MainController extends Controller
             return view('update_enquiry', ['msp'=> $msp]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -760,7 +765,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -772,7 +777,7 @@ class MainController extends Controller
             return redirect('admin/manage_enquiry');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -783,7 +788,7 @@ class MainController extends Controller
             return view('manage_newsletter', ['msps'=>$ibs]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -792,7 +797,7 @@ class MainController extends Controller
             return view('add_newsletter');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -806,7 +811,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function update_newsletter_show($id){
@@ -816,7 +821,7 @@ class MainController extends Controller
             return view('update_newsletter', ['msp'=> $msp]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -830,7 +835,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -842,7 +847,7 @@ class MainController extends Controller
             return redirect('admin/manage_newsletter');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -852,7 +857,7 @@ class MainController extends Controller
             return view('manage_memberid', ['msps'=>$ibs]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -861,7 +866,7 @@ class MainController extends Controller
             return view('add_memberid');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -877,7 +882,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function update_memberid_show($id){
@@ -887,7 +892,7 @@ class MainController extends Controller
             return view('update_memberid', ['msp'=> $msp]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -903,7 +908,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -915,7 +920,7 @@ class MainController extends Controller
             return redirect('admin/manage_memberid');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -925,7 +930,7 @@ class MainController extends Controller
             return view('manage_testimonial', ['msps'=>$ibs]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -934,7 +939,7 @@ class MainController extends Controller
             return view('add_testimonial');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -963,7 +968,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function update_testimonial_show($id){
@@ -973,7 +978,7 @@ class MainController extends Controller
             return view('update_testimonial', ['msp'=> $msp]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -1002,7 +1007,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -1014,7 +1019,7 @@ class MainController extends Controller
             return redirect('admin/manage_testimonial');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -1026,7 +1031,7 @@ class MainController extends Controller
             return view('manage_acceptance', ['msps'=>$ibs]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -1035,7 +1040,7 @@ class MainController extends Controller
             return view('add_acceptance');
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -1050,7 +1055,7 @@ class MainController extends Controller
 
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
 
@@ -1062,7 +1067,7 @@ class MainController extends Controller
             return redirect('admin/manage_acceptance');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
 
@@ -1073,7 +1078,7 @@ class MainController extends Controller
             return view('manage_user_list', ['msps'=>$ibs]);
         }
         else{
-            return redirect('login');
+            return redirect('admin');
         }
     }
     function change_status_user_list($id){
@@ -1089,7 +1094,7 @@ class MainController extends Controller
         return redirect('admin/manage_user_list');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
         }
     }
     function delete_user_list($id){
@@ -1100,7 +1105,513 @@ class MainController extends Controller
             return redirect('admin/manage_user_list');
         }
         else{
-            return redirect('/login');
+            return redirect('admin');
+        }
+    }
+
+
+    function show_banner(){
+        if(session()->has('user')){
+            $ibs = Banner::paginate(10);
+            return view('manage_banner', ['msps'=>$ibs]);
+        }
+        else{
+            return redirect('login');
+        }
+    }
+
+    function add_banner_show(){
+        if(session()->has('user')){
+            return view('add_banner');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function add_banner(Request $req){
+        if(session()->has('user')){
+            $msp = new Banner;
+            if($req->file('bannerImage')){
+                $file= $req->file('bannerImage');
+                $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
+                $file-> move(public_path('gallery/banner/'), $filename);
+                $msp['bannerImage']= $filename;
+            }
+            
+            $msp->banner_title = $req->banner_title;
+            $msp->target_url = $req->target_url;
+            $msp->des = $req->des;
+            $msp->pagetype = $req->pagetype;
+            $msp->save();
+            return redirect('admin/manage_banner');
+
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+    function update_banner_show($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = Banner::find($pid);
+            return view('update_banner', ['msp'=> $msp]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function update_banner(Request $req){
+        if(session()->has('user')){
+            $msp = Banner::find($req->id);
+            if($req->file('bannerImage')){
+                $file= $req->file('bannerImage');
+                $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
+                $file-> move(public_path('gallery/banner/'), $filename);
+                $msp['bannerImage']= $filename;
+            }
+            
+            $msp->banner_title = $req->banner_title;
+            $msp->target_url = $req->target_url;
+            $msp->des = $req->des;
+            $msp->pagetype = $req->pagetype;
+            $msp->update();
+            return redirect('admin/manage_banner');
+
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function delete_banner($id){
+        if(session()->has('user')){
+            $mid = \Crypt::decrypt($id);
+            $data = Banner::find($mid);
+            $data->delete();
+            return redirect('admin/manage_banner');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+
+
+    function show_social(){
+        if(session()->has('user')){
+            $ibs = Social::paginate(10);
+            return view('manage_social', ['msps'=>$ibs]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function add_social_show(){
+        if(session()->has('user')){
+            return view('add_social');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function add_social(Request $req){
+        if(session()->has('user')){
+            $msp = new Social;
+            
+            $msp->title = $req->title;
+            $msp->social_url = $req->social_url;
+            $msp->status = true;
+            $msp->save();
+            return redirect('admin/manage_social');
+
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+    function update_social_show($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = Social::find($pid);
+            return view('update_social', ['msp'=> $msp]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function update_social(Request $req){
+        if(session()->has('user')){
+            $msp = Social::find($req->id);
+            
+            $msp->title = $req->title;
+            $msp->social_url = $req->social_url;
+            $msp->status = true;
+            $msp->update();
+            return redirect('admin/manage_social');
+
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function delete_social($id){
+        if(session()->has('user')){
+            $mid = \Crypt::decrypt($id);
+            $data = Social::find($mid);
+            $data->delete();
+            return redirect('admin/manage_social');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function show_staff(){
+        if(session()->has('user')){
+            $ibs = ManageStaff::paginate(10);
+            return view('manage_staff', ['msps'=>$ibs]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function add_staff_show(){
+        if(session()->has('user')){
+            return view('add_staff');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function add_staff(Request $req){
+        if(session()->has('user')){
+            $msp = new ManageStaff;
+            
+            $msp->employee_id = $req->employee_id;
+            $msp->name = $req->name;
+            $msp->email = $req->email;
+            $msp->phone = $req->phone;
+            $msp->address = $req->address;
+
+            $msp->save();
+            return redirect('admin/manage_staff');
+
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+    function update_staff_show($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = ManageStaff::find($pid);
+            return view('update_staff', ['msp'=> $msp]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function update_staff(Request $req){
+        if(session()->has('user')){
+            $msp = ManageStaff::find($req->id);
+            
+            $msp->employee_id = $req->employee_id;
+            $msp->name = $req->name;
+            $msp->email = $req->email;
+            $msp->phone = $req->phone;
+            $msp->address = $req->address;
+            $msp->update();
+            return redirect('admin/manage_staff');
+
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function delete_staff($id){
+        if(session()->has('user')){
+            $mid = \Crypt::decrypt($id);
+            $data = ManageStaff::find($mid);
+            $data->delete();
+            return redirect('admin/manage_membership');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function show_membership(){
+        if(session()->has('user')){
+            $ibs = MembershipUser::paginate(10);
+            return view('manage_membership', ['msps'=>$ibs]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+
+    function delete_membership($id){
+        if(session()->has('user')){
+            $mid = \Crypt::decrypt($id);
+            $data = MembershipUser::find($mid);
+            $data->delete();
+            return redirect('admin/manage_membership');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+
+
+
+
+    function update_membership_perinfo_show($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = MembershipUser::where(['user_id'=>$pid])->first();
+            return view('update_membership_perinfo', ['msp'=> $msp]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function update_membership_perinfo(Request $req){
+        if(session()->has('user')){
+            $msp = MembershipUser::where(['user_id'=>$req->user_id])->first();
+            
+            $msp->f_name = $req->f_name;
+            $msp->l_name = $req->l_name;
+            $msp->email = $req->email;
+            $msp->m_no = $req->m_no;
+            $msp->h_phone = $req->h_phone;
+            $msp->add_one = $req->add_one;
+            $msp->add_two = $req->add_two;
+            $msp->country = $req->country;
+            $msp->dob = $req->dob;
+
+
+            $msp->update();
+            return redirect('admin/manage_membership');
+
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+
+
+
+
+
+    function update_membership_cominfo_show($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = MembershipUser::where(['user_id'=>$pid])->first();
+            return view('update_membership_cominfo', ['msp'=> $msp]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function update_membership_cominfo(Request $req){
+        if(session()->has('user')){
+            $msp = MembershipUser::where(['user_id'=>$req->user_id])->first();
+            
+            $msp->com_name = $req->com_name;
+            $msp->com_phone = $req->com_phone;
+            $msp->com_add = $req->com_add;
+            $msp->company_country = $req->company_country;
+            $msp->com_fax = $req->com_fax;
+            $msp->com_email = $req->com_email;
+            $msp->web_url = $req->web_url;
+
+            $msp->update();
+            return redirect('admin/manage_membership');
+
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+
+
+
+
+
+    function update_membership_cisinfo_show($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = CisData::where(['user_id'=>$pid])->first();
+            return view('update_membership_cisinfo', ['msp'=> $msp]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function update_membership_cisinfo(Request $req){
+        if(session()->has('user')){
+            $msp = CisData::where(['user_id'=>$req->user_id])->first();
+            
+            $msp->username = $req->username;
+            $msp->f_name = $req->f_name;
+            $msp->l_name = $req->l_name;
+            $msp->address = $req->address;
+            $msp->mobile = $req->mobile;
+            $msp->h_tell_no = $req->h_tell_no;
+            $msp->fax_no = $req->fax_no;
+            $msp->email = $req->email;
+            $msp->lang_spoke = $req->lang_spoke;
+            $msp->dob = $req->dob;
+            $msp->birth_place = $req->birth_place;
+            $msp->social_security_no = $req->social_security_no;
+            $msp->citizenship = $req->citizenship;
+            $msp->issuing_authority = $req->issuing_authority;
+            $msp->date_issue = $req->date_issue;
+            $msp->date_expiry = $req->date_expiry;
+            $msp->buss_activities = $req->buss_activities;
+            $msp->buss_name = $req->buss_name;
+            $msp->place_activities = $req->place_activities;
+            $msp->bank_name = $req->bank_name;
+            $msp->bank_branch = $req->bank_branch;
+            $msp->acc_no = $req->acc_no;
+            $msp->acc_siganorty = $req->acc_siganorty;
+            $msp->swift_code = $req->swift_code;
+            $msp->IBAN_no = $req->IBAN_no;
+            $msp->bank_officer_name = $req->bank_officer_name;
+            $msp->bank_tell_no = $req->bank_tell_no;
+            $msp->sing_speak_eng = $req->sing_speak_eng;
+            $msp->translator_name = $req->translator_name;
+            $msp->translator_tell = $req->translator_tell;
+            $msp->translator_email = $req->translator_email;
+            $msp->full_name = $req->full_name;
+            $msp->cpmpany = $req->cpmpany;
+            $msp->com_address = $req->com_address;
+            $msp->com_tell = $req->com_tell;
+            $msp->com_fax = $req->com_fax;
+            $msp->com_email = $req->com_email;
+            $msp->b_name = $req->b_name;
+            $msp->br_name = $req->br_name;
+            $msp->b_add = $req->b_add;
+            $msp->b_acc_name = $req->b_acc_name;
+            $msp->b_acc_no = $req->b_acc_no;
+            $msp->b_swift_code = $req->b_swift_code;
+            $msp->iban_aba_no = $req->iban_aba_no;
+            $msp->acc_signatory1 = $req->acc_signatory1;
+            $msp->acc_signatory2 = $req->acc_signatory2;
+            $msp->b_officer1 = $req->b_officer1;
+            $msp->b_officer2 = $req->b_officer2;
+            $msp->b_tell_no = $req->b_tell_no;
+            $msp->b_fax_no = $req->b_fax_no;
+            $msp->pass_no = $req->pass_no;
+            $msp->country = $req->country;
+            $msp->status = true;
+
+            $msp->update();
+            return redirect('admin/manage_membership');
+
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+
+
+
+
+
+
+
+    function update_membership_pqfinfo_show($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = PqfData::where(['user_id'=>$pid])->first();
+            return view('update_membership_pqfinfo', ['msp'=> $msp]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function update_membership_pqfinfo(Request $req){
+        if(session()->has('user')){
+            $msp = PqfData::where(['user_id'=>$req->user_id])->first();
+            
+            $msp->name_major = $req->name_major;
+            $msp->com_name = $req->com_name;
+            $msp->web_url = $req->web_url;
+            $msp->buss_disc = $req->buss_disc;
+            $msp->buss_year = $req->buss_year;
+            $msp->broker = $req->broker;
+            $msp->length_Investment = $req->length_Investment;
+            $msp->assets_purch = $req->assets_purch;
+            $msp->licenses_permits = $req->licenses_permits;
+            $msp->loan_req = $req->loan_req;
+            $msp->money_need = $req->money_need;
+            $msp->indicate_amount = $req->indicate_amount;
+            $msp->ROI = $req->ROI;
+            $msp->searching_funding = $req->searching_funding;
+            $msp->com_Investors = $req->com_Investors;
+            $msp->financing_request = $req->financing_request;
+            $msp->collateral = $req->collateral;
+            $msp->worth_company = $req->worth_company;
+            $msp->project_venture = $req->project_venture;
+            
+            $msp->update();
+            return redirect('admin/manage_membership');
+
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+
+
+
+
+
+
+    function update_membership_ilrfinfo_show($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = CisData::where(['user_id'=>$pid])->first();
+            return view('update_membership_ilrfinfo', ['msp'=> $msp]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function update_membership_ilrfinfo(Request $req){
+        if(session()->has('user')){
+            $msp = CisData::where(['user_id'=>$req->user_id])->first();
+            
+            // $msp->employee_id = $req->employee_id;
+            
+            $msp->update();
+            return redirect('admin/manage_membership');
+
+        }
+        else{
+            return redirect('admin');
         }
     }
     
