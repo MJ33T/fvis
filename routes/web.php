@@ -281,3 +281,10 @@ Route::get('admin/manage_membership/update_membership_ilrfinfo/{id}', [MainContr
 
 Route::post('/admin/manage_membership/update_membership_ilrfinfo', [MainController::class, 'update_membership_ilrfinfo']);
 
+
+Route::get('admin/manage_membership/show_update_membership_ilrfinfo', [MainController::class, 'show_update_membership_ilrfinfo']);
+
+
+
+
+

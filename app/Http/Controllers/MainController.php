@@ -23,6 +23,7 @@ use App\Models\ManageStaff;
 use App\Models\MembershipUser;
 use App\Models\CisData;
 use App\Models\PqfData;
+use App\Models\IlrfData;
 
 
 
@@ -1592,7 +1593,7 @@ class MainController extends Controller
     function update_membership_ilrfinfo_show($id){
         if(session()->has('user')){
             $pid = \Crypt::decrypt($id);
-            $msp = CisData::where(['user_id'=>$pid])->first();
+            $msp = IlrfData::where(['user_id'=>$pid])->first();
             return view('update_membership_ilrfinfo', ['msp'=> $msp]);
         }
         else{
@@ -1602,10 +1603,235 @@ class MainController extends Controller
 
     function update_membership_ilrfinfo(Request $req){
         if(session()->has('user')){
-            $msp = CisData::where(['user_id'=>$req->user_id])->first();
+            $msp = IlrfData::where(['user_id'=>$req->user_id])->first();
             
-            // $msp->employee_id = $req->employee_id;
-            
+            $msp->primary_off = $req->primary_off;
+            $msp->prepared_by = $req->prepared_by;
+            $msp->date_pre = $req->date_pre;
+            $msp->loan_request = $req->loan_request;
+            $msp->bussi_from = $req->bussi_from;
+            $msp->organ_date = $req->organ_date;
+            $msp->type = $req->type;
+            $msp->manag = $req->manag;
+            $msp->ownership = $req->ownership;
+            $msp->guarantors = $req->guarantors;
+            $msp->request = $req->request;
+            $msp->purpose = $req->purpose;
+            $msp->terms_type = $req->terms_type;
+            $msp->terms_amount = $req->terms_amount;
+            $msp->terms_rate = $req->terms_rate;
+            $msp->terms_term = $req->terms_term;
+            $msp->terms_type2 = $req->terms_type2;
+            $msp->terms_amount2 = $req->terms_amount2;
+            $msp->terms_rate2 = $req->terms_rate2;
+            $msp->terms_term2 = $req->terms_term2;
+            $msp->terms_repay2 = $req->terms_repay2;
+            $msp->terms_type3 = $req->terms_type3;
+            $msp->terms_amount3 = $req->terms_amount3;
+            $msp->terms_rate3 = $req->terms_rate3;
+            $msp->terms_term3 = $req->terms_term3;
+            $msp->terms_repay3 = $req->terms_repay3;
+            $msp->source_primary = $req->source_primary;
+            $msp->source_secondary = $req->source_secondary;
+            $msp->source_teriary = $req->source_teriary;
+            $msp->source_desi = $req->source_desi;
+            $msp->colla_app = $req->colla_app;
+            $msp->colla_debt = $req->colla_debt;
+            $msp->colla_avail = $req->colla_avail;
+            $msp->coll_ltv = $req->coll_ltv;
+            $msp->colla_app2 = $req->colla_app2;
+            $msp->colla_debt2 = $req->colla_debt2;
+            $msp->colla_avail2 = $req->colla_avail2;
+            $msp->coll_ltv2 = $req->coll_ltv2;
+            $msp->colla_app3 = $req->colla_app3;
+            $msp->colla_debt3 = $req->colla_debt3;
+            $msp->colla_avail3 = $req->colla_avail3;
+            $msp->coll_ltv3 = $req->coll_ltv3;
+            $msp->colla_app4 = $req->colla_app4;
+            $msp->colla_debt4 = $req->colla_debt4;
+            $msp->colla_avail4 = $req->colla_avail4;
+            $msp->coll_ltv4 = $req->coll_ltv4;
+            $msp->colla_app5 = $req->colla_app5;
+            $msp->colla_debt5 = $req->colla_debt5;
+            $msp->colla_avail5 = $req->colla_avail5;
+            $msp->coll_ltv5 = $req->coll_ltv5;
+            $msp->colla_app6 = $req->colla_app6;
+            $msp->colla_debt6 = $req->colla_debt6;
+            $msp->colla_avail6 = $req->colla_avail6;
+            $msp->coll_ltv6 = $req->coll_ltv6;
+            $msp->flood_haz = $req->flood_haz;
+            $msp->envi_concer = $req->envi_concer;
+            $msp->bow_type = $req->bow_type;
+            $msp->bow_open = $req->bow_open;
+            $msp->bow_high = $req->bow_high;
+            $msp->bow_bal = $req->bow_bal;
+            $msp->bow_ren = $req->bow_ren;
+            $msp->bow_rate = $req->bow_rate;
+            $msp->bow_terms = $req->bow_terms;
+            $msp->bow_sec = $req->bow_sec;
+            $msp->bow_ltv = $req->bow_ltv;
+            $msp->bow_type2 = $req->bow_type2;
+            $msp->bow_open2 = $req->bow_open2;
+            $msp->bow_high2 = $req->bow_high2;
+            $msp->bow_bal2 = $req->bow_bal2;
+            $msp->bow_ren2 = $req->bow_ren2;
+            $msp->bow_rate2 = $req->bow_rate2;
+            $msp->bow_terms2 = $req->bow_terms2;
+            $msp->bow_sec2 = $req->bow_sec2;
+            $msp->bow_ltv2 = $req->bow_ltv2;
+            $msp->bow_type3 = $req->bow_type3;
+            $msp->bow_open3 = $req->bow_open3;
+            $msp->bow_high3 = $req->bow_high3;
+            $msp->bow_bal3 = $req->bow_bal3;
+            $msp->bow_ren3 = $req->bow_ren3;
+            $msp->bow_rate3 = $req->bow_rate3;
+            $msp->bow_terms3 = $req->bow_terms3;
+            $msp->bow_sec3 = $req->bow_sec3;
+            $msp->bow_ltv3 = $req->bow_ltv3;
+            $msp->bow_pay_his = $req->bow_pay_his;
+            $msp->low_bal = $req->low_bal;
+            $msp->other_debts = $req->other_debts;
+            $msp->days_zero = $req->days_zero;
+            $msp->othter_debts2 = $req->othter_debts2;
+            $msp->dep_name = $req->dep_name;
+            $msp->dep_acct = $req->dep_acct;
+            $msp->dep_type = $req->dep_type;
+            $msp->dep_opened = $req->dep_opened;
+            $msp->dep_ren = $req->dep_ren;
+            $msp->dep_bal = $req->dep_bal;
+            $msp->dep_avg = $req->dep_avg;
+            $msp->dep_rate = $req->dep_rate;
+            $msp->dep_name2 = $req->dep_name2;
+            $msp->dep_acct2 = $req->dep_acct2;
+            $msp->dep_type2 = $req->dep_type2;
+            $msp->dep_opened2 = $req->dep_opened2;
+            $msp->dep_ren2 = $req->dep_ren2;
+            $msp->dep_bal2 = $req->dep_bal2;
+            $msp->dep_avg2 = $req->dep_avg2;
+            $msp->dep_rate2 = $req->dep_rate2;
+            $msp->dep_name3 = $req->dep_name3;
+            $msp->dep_acct3 = $req->dep_acct3;
+            $msp->dep_type3 = $req->dep_type3;
+            $msp->dep_opened3 = $req->dep_opened3;
+            $msp->dep_ren3 = $req->dep_ren3;
+            $msp->dep_bal3 = $req->dep_bal3;
+            $msp->dep_avg3 = $req->dep_avg3;
+            $msp->dep_rate3 = $req->dep_rate3;
+            $msp->ave_cost_fund = $req->ave_cost_fund;
+            $msp->trust_relati = $req->trust_relati;
+            $msp->back_info = $req->back_info;
+            $msp->buss_name = $req->buss_name;
+            $msp->buss_tel = $req->buss_tel;
+            $msp->com_address = $req->com_address;
+            $msp->tax_id = $req->tax_id;
+            $msp->indi_name = $req->indi_name;
+            $msp->bussi_address = $req->bussi_address;
+            $msp->bussi_tel = $req->bussi_tel;
+            $msp->social_security = $req->social_security;
+            $msp->date_of_birth = $req->date_of_birth;
+            $msp->proprietorship = $req->proprietorship;
+            $msp->partnership = $req->partnership;
+            $msp->sub_chapter = $req->sub_chapter;
+            $msp->non_profit = $req->non_profit;
+            $msp->individual = $req->individual;
+            $msp->llc = $req->llc;
+            $msp->own_name = $req->own_name;
+            $msp->own_title = $req->own_title;
+            $msp->own_of_year = $req->own_of_year;
+            $msp->own_name2 = $req->own_name2;
+            $msp->own_title2 = $req->own_title2;
+            $msp->own_of_year2 = $req->own_of_year2;
+            $msp->own_name3 = $req->own_name3;
+            $msp->own_title3 = $req->own_title3;
+            $msp->own_of_year3 = $req->own_of_year3;
+            $msp->nature_bussi = $req->nature_bussi;
+            $msp->year_estb = $req->year_estb;
+            $msp->number_emply = $req->number_emply;
+            $msp->own = $req->own;
+            $msp->accountant = $req->accountant;
+            $msp->acc_telephone = $req->acc_telephone;
+            $msp->insur_agent = $req->insur_agent;
+            $msp->agent_no = $req->agent_no;
+            $msp->attorney = $req->attorney;
+            $msp->attorney_no = $req->attorney_no;
+            $msp->bank_of_account = $req->bank_of_account;
+            $msp->accnt_no = $req->accnt_no;
+            $msp->n_creditor = $req->n_creditor;
+            $msp->p_loan = $req->p_loan;
+            $msp->r_ammonut = $req->r_ammonut;
+            $msp->p_owing = $req->p_owing;
+            $msp->n_creditor2 = $req->n_creditor2;
+            $msp->p_loan2 = $req->p_loan2;
+            $msp->r_ammonut2 = $req->r_ammonut2;
+            $msp->p_owing2 = $req->p_owing2;
+            $msp->n_creditor3 = $req->n_creditor3;
+            $msp->p_loan3 = $req->p_loan3;
+            $msp->r_ammonut3 = $req->r_ammonut3;
+            $msp->p_owing3 = $req->p_owing3;
+            $msp->amount_loan_req = $req->amount_loan_req;
+            $msp->line_credit = $req->line_credit;
+            $msp->term_laon = $req->term_laon;
+            $msp->req_term_laon = $req->req_term_laon;
+            $msp->bussi_home = $req->bussi_home;
+            $msp->commer_real = $req->commer_real;
+            $msp->working_cap = $req->working_cap;
+            $msp->state_type_loan = $req->state_type_loan;
+            $msp->finan_purch = $req->finan_purch;
+            $msp->finan_text = $req->finan_text;
+            $msp->fin_pur_estate = $req->fin_pur_estate;
+            $msp->fin_pur_text = $req->fin_pur_text;
+            $msp->fin_pur_bussi = $req->fin_pur_bussi;
+            $msp->fin_pur_bussi_text = $req->fin_pur_bussi_text;
+            $msp->refin_exi_loan = $req->refin_exi_loan;
+            $msp->refin_exi_loan_text = $req->refin_exi_loan_text;
+            $msp->all_asset = $req->all_asset;
+            $msp->spe_equipment = $req->spe_equipment;
+            $msp->real_estate = $req->real_estate;
+            $msp->square_feet = $req->square_feet;
+            $msp->acres = $req->acres;
+            $msp->cash_dep = $req->cash_dep;
+            $msp->branch = $req->branch;
+            $msp->account = $req->account;
+            $msp->p_assets = $req->p_assets;
+            $msp->guar_name = $req->guar_name;
+            $msp->guar_security = $req->guar_security;
+            $msp->guar_add = $req->guar_add;
+            $msp->guar_name2 = $req->guar_name2;
+            $msp->guar_security2 = $req->guar_security2;
+            $msp->guar_add2 = $req->guar_add2;
+            $msp->guar_name3 = $req->guar_name3;
+            $msp->guar_security3 = $req->guar_security3;
+            $msp->guar_add3 = $req->guar_add3;
+            $msp->bussi_back = $req->bussi_back;
+            $msp->per_bussi_exp = $req->per_bussi_exp;
+            $msp->misc_yes = $req->misc_yes;
+            $msp->buss_end_yes = $req->buss_end_yes;
+            $msp->w_contingent = $req->w_contingent;
+            $msp->buss_pri_yes = $req->buss_pri_yes;
+            $msp->buss_defe_yes = $req->buss_defe_yes;
+            $msp->buss_ass_yes = $req->buss_ass_yes;
+            $msp->what = $req->what;
+            $msp->by_whom = $req->by_whom;
+            $msp->amnt = $req->amnt;
+            $msp->what2 = $req->what2;
+            $msp->by_whom2 = $req->by_whom2;
+            $msp->amnt2 = $req->amnt2;
+            $msp->what3 = $req->what3;
+            $msp->by_whom3 = $req->by_whom3;
+            $msp->amnt3 = $req->amnt3;
+            $msp->does_buss_yes = $req->does_buss_yes;
+            $msp->profit_yes = $req->profit_yes;
+            $msp->ifso_yes = $req->ifso_yes;
+            $msp->buss_laon_app = $req->buss_laon_app;
+            $msp->accont_pre_busi = $req->accont_pre_busi;
+            $msp->buss_fed = $req->buss_fed;
+            $msp->in_financial = $req->in_financial;
+            $msp->most_recent = $req->most_recent;
+            $msp->per_finacial = $req->per_finacial;
+            $msp->org_papers = $req->org_papers;
+            $msp->other2 = $req->other2;
+            $msp->other_text = $req->other_text;
+           
             $msp->update();
             return redirect('admin/manage_membership');
 
@@ -1615,4 +1841,16 @@ class MainController extends Controller
         }
     }
     
+
+
+
+
+
+
+
+
+
+    function show_update_membership_ilrfinfo(){
+        return view('update_membership_ilrfinfo');
+    }
 }

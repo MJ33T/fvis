@@ -3,7 +3,7 @@
 <div class="content-header">
 <div class="container-fluid">
     <footer class="master-footer">
-        <strong>Copyright &copy; 2022 <a href="/">FSVI</a>.</strong>
+        <strong>Copyright &copy; 2022 <a href="/">FVIS</a>.</strong>
             All rights reserved.
     </footer>
 </div>
