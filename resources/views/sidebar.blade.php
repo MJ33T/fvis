@@ -102,57 +102,57 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/approve_cis_form" class="nav-link">
                   <p>
-                    Approve Cis forms
+                    Approve CIS forms
                   </p>
                 </a>
               </li>
               
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/approve_pqf_form" class="nav-link">
                   <p>
-                    Approve Qf forms
+                    Approve PQF forms
                   </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="paid_reports" class="nav-link">
+                <a href="/admin/approve_ilrf_form" class="nav-link">
                   <p>
                     Approve ILRF forms
                   </p>
                 </a>
               </li>
               <li class="paid_nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/approve_inspection" class="nav-link">
                   <p>
                     Approve Inspection
                   </p>
                 </a>
               </li>
               <li class="paid_nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/approve_premiun_retainer" class="nav-link">
                   <p>
                     Approve Retainer
                   </p>
                 </a>
               </li>
               <li class="paid_nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/approve_spv" class="nav-link">
                   <p>
                     Approve SPV
                   </p>
                 </a>
               </li>
               <li class="paid_nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/approve_closing" class="nav-link">
                   <p>
                     Approve Closing
                   </p>
                 </a>
               </li>
               <li class="paid_nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/approve_collateral" class="nav-link">
                   <p>
                     Approve Collateral
                   </p>

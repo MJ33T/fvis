@@ -282,7 +282,14 @@ Route::get('admin/manage_membership/update_membership_ilrfinfo/{id}', [MainContr
 Route::post('/admin/manage_membership/update_membership_ilrfinfo', [MainController::class, 'update_membership_ilrfinfo']);
 
 
-Route::get('admin/manage_membership/show_update_membership_ilrfinfo', [MainController::class, 'show_update_membership_ilrfinfo']);
+Route::get('/admin/approve_cis_form', [MainController::class, 'approve_cis_form_show']);
+Route::get('/admin/approve_pqf_form', [MainController::class, 'approve_pqf_form_show']);
+Route::get('/admin/approve_ilrf_form', [MainController::class, 'approve_ilrf_form_show']);
+Route::get('/admin/approve_inspection', [MainController::class, 'approve_inspection_show']);
+Route::get('/admin/approve_premiun_retainer', [MainController::class, 'approve_premiun_retainer_show']);
+Route::get('/admin/approve_closing', [MainController::class, 'approve_closing_show']);
+Route::get('/admin/approve_collateral', [MainController::class, 'approve_collateral_show']);
+Route::get('/admin/approve_spv', [MainController::class, 'approve_spv_show']);
 
 
 

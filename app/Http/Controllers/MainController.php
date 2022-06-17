@@ -1842,15 +1842,78 @@ class MainController extends Controller
     }
     
 
-
-
-
-
-
-
-
-
-    function show_update_membership_ilrfinfo(){
-        return view('update_membership_ilrfinfo');
+    function approve_cis_form_show(){
+        if(session()->has('user')){
+            return view('approve_cis_form');
+        }
+        else{
+            return redirect('admin');
+        }
     }
+    function approve_pqf_form_show(){
+        if(session()->has('user')){
+            return view('approve_pqf_form');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+    function approve_ilrf_form_show(){
+        if(session()->has('user')){
+            return view('approve_ilrf_form');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+    function approve_inspection_show(){
+        if(session()->has('user')){
+            return view('approve_inspection');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+    function approve_premiun_retainer_show(){
+        if(session()->has('user')){
+            return view('approve_premiun_retainer');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+    function approve_closing_show(){
+        if(session()->has('user')){
+            return view('approve_closing');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+    function approve_collateral_show(){
+        if(session()->has('user')){
+            return view('approve_collateral');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+    function approve_spv_show(){
+        if(session()->has('user')){
+            return view('approve_spv');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+
+
+
+
+
+
+    // function show_update_membership_ilrfinfo(){
+    //     return view('update_membership_ilrfinfo');
+    // }
 }
