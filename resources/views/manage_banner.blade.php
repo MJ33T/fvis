@@ -36,7 +36,7 @@
                                 <td style="text-align: center">{{'This banner for the '.$msp->pagetype}}</td>
                                 <td style="text-align: center">{{$msp->pagetype}}</td>
                                 <td style="text-align: center"><img src="{{asset('gallery/banner/'.$msp->bannerImage)}}" style="height: 100px; width: 150px;"></td>
-                                <td style="text-align: center">{{$msp->status}}</td>
+                                <td style="text-align: center">{{$msp->status == 1?'Active':'Deactive'}}</td>
                                 <td style="text-align: center">
                                     
                                     <a href="manage_banner/update_banner/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-warning">Update</a>

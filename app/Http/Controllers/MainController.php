@@ -24,6 +24,8 @@ use App\Models\MembershipUser;
 use App\Models\CisData;
 use App\Models\PqfData;
 use App\Models\IlrfData;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 
 
@@ -86,9 +88,13 @@ class MainController extends Controller
         if(session()->has('user')){
             $partner = OurPartner::find($req->id);
             if($req->file('upload_logo')){
+                $destination = public_path('gallery/logos/').$partner->logo;
+                if(File::exists($destination)){
+                    File::delete($destination);
+                }
                 $file= $req->file('upload_logo');
                 $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
-                $file-> move(public_path('public/Images'), $filename);
+                $file-> move(public_path('gallery/logos/'), $filename);
                 $partner['logo']= $filename;
             }
             $partner->title = $req->title;
@@ -109,7 +115,10 @@ class MainController extends Controller
         if(session()->has('user')){
             $pid = \Crypt::decrypt($id);
             $data = OurPartner::find($pid);
-
+            $destination = public_path('gallery/logos/').$data->logo;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
             $data->delete();
             return redirect('admin/manage_partner');
         }
@@ -173,7 +182,12 @@ class MainController extends Controller
     function update_service(Request $req){
         if(session()->has('user')){
             $service = OurService::find($req->id);
+            
             if($req->file('upload_image')){
+                $destination = public_path('gallery/services/').$service->image;
+                if(File::exists($destination)){
+                    File::delete($destination);
+                }
                 $file= $req->file('upload_image');
                 $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
                 $file-> move(public_path('gallery/services/'), $filename);
@@ -195,7 +209,10 @@ class MainController extends Controller
         if(session()->has('user')){
             $sid = \Crypt::decrypt($id);
             $data = OurService::find($sid);
-
+            $destination = public_path('gallery/services/').$data->image;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
             $data->delete();
             return redirect('admin/manage_service');
         }
@@ -260,8 +277,13 @@ class MainController extends Controller
 
     function update_project(Request $req){
         if(session()->has('user')){
-            $project = OurService::find($req->id);
+            $project = OurProject::find($req->id);
+
             if($req->file('upload_image')){
+                $destination = public_path('gallery/projects/').$project->image;
+                if(File::exists($destination)){
+                    File::delete($destination);
+                }
                 $file= $req->file('upload_image');
                 $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
                 $file-> move(public_path('gallery/projects/'), $filename);
@@ -283,7 +305,10 @@ class MainController extends Controller
         if(session()->has('user')){
             $pid = \Crypt::decrypt($id);
             $data = OurProject::find($pid);
-
+            $destination = public_path('gallery/projects/').$data->image;
+                if(File::exists($destination)){
+                    File::delete($destination);
+                }
             $data->delete();
             return redirect('admin/manage_project');
         }
@@ -349,6 +374,10 @@ class MainController extends Controller
         if(session()->has('user')){
             $car = CarList::find($req->id);
             if($req->file('upload_image')){
+                $destination = public_path('gallery/cars/').$car->carimage;
+                if(File::exists($destination)){
+                    File::delete($destination);
+                }
                 $file= $req->file('upload_image');
                 $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
                 $file-> move(public_path('gallery/cars/'), $filename);
@@ -370,7 +399,10 @@ class MainController extends Controller
         if(session()->has('user')){
             $cid = \Crypt::decrypt($id);
             $data = CarList::find($cid);
-
+            $destination = public_path('gallery/cars/').$data->carimage;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
             $data->delete();
             return redirect('admin/manage_car');
         }
@@ -735,6 +767,7 @@ class MainController extends Controller
             $msp->email = $req->email;
             $msp->number = $req->number;
             $msp->company_name = $req->cmp;
+            $msp->message = $req->message;
             $msp->save();
             return redirect('admin/manage_enquiry');
 
@@ -951,13 +984,13 @@ class MainController extends Controller
                 $file= $req->file('img');
                 $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
                 $file-> move(public_path('gallery/testimonial/img/'), $filename);
-                $car['photo']= $filename;
+                $msp['photo']= $filename;
             }
             if($req->file('med_img')){
                 $file= $req->file('med_img');
                 $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
                 $file-> move(public_path('gallery/testimonial/med_img/'), $filename);
-                $car['medal_image']= $filename;
+                $msp['medal_image']= $filename;
             }
             $msp->name = $req->name;
             $msp->chinese_name = $req->ch_name;
@@ -987,16 +1020,24 @@ class MainController extends Controller
         if(session()->has('user')){
             $msp = Testimonials::find($req->id);
             if($req->file('img')){
+                $destination = public_path('gallery/testimonial/img/').$msp->photo;
+                if(File::exists($destination)){
+                    File::delete($destination);
+                }
                 $file= $req->file('img');
                 $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
                 $file-> move(public_path('gallery/testimonial/img/'), $filename);
-                $car['photo']= $filename;
+                $msp->photo= $filename;
             }
             if($req->file('med_img')){
+                $destination_med = public_path('gallery/testimonial/med_img/').$msp->medal_image;
+                if(File::exists($destination_med)){
+                    File::delete($destination_med);
+                }
                 $file= $req->file('med_img');
                 $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
                 $file-> move(public_path('gallery/testimonial/med_img/'), $filename);
-                $car['medal_image']= $filename;
+                $msp->medal_image= $filename;
             }
             $msp->name = $req->name;
             $msp->chinese_name = $req->ch_name;
@@ -1004,7 +1045,7 @@ class MainController extends Controller
             $msp->review = $req->rev;
             $msp->chinese_review = $req->ch_rev;
             $msp->update();
-            return redirect('admin/update_testimonial');
+            return redirect('admin/manage_testimonial');
 
         }
         else{
@@ -1016,6 +1057,14 @@ class MainController extends Controller
         if(session()->has('user')){
             $mid = \Crypt::decrypt($id);
             $data = Testimonials::find($mid);
+            $destination = public_path('gallery/testimonial/img/').$data->photo;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $destination_med = public_path('gallery/testimonial/med_img/').$data->medal_image;
+            if(File::exists($destination_med)){
+                File::delete($destination_med);
+            }
             $data->delete();
             return redirect('admin/manage_testimonial');
         }
@@ -1133,8 +1182,8 @@ class MainController extends Controller
     function add_banner(Request $req){
         if(session()->has('user')){
             $msp = new Banner;
-            if($req->file('bannerImage')){
-                $file= $req->file('bannerImage');
+            if($req->file('image')){
+                $file= $req->file('image');
                 $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
                 $file-> move(public_path('gallery/banner/'), $filename);
                 $msp['bannerImage']= $filename;
@@ -1166,8 +1215,12 @@ class MainController extends Controller
     function update_banner(Request $req){
         if(session()->has('user')){
             $msp = Banner::find($req->id);
-            if($req->file('bannerImage')){
-                $file= $req->file('bannerImage');
+            if($req->file('image')){
+                $destination= public_path('gallery/banner/').$msp->bannerImage;
+                if(File::exists($destination)){
+                    File::delete($destination);
+                }
+                $file= $req->file('image');
                 $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
                 $file-> move(public_path('gallery/banner/'), $filename);
                 $msp['bannerImage']= $filename;
@@ -1190,6 +1243,10 @@ class MainController extends Controller
         if(session()->has('user')){
             $mid = \Crypt::decrypt($id);
             $data = Banner::find($mid);
+            $destination = public_path('gallery/banner/').$data->bannerImage;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
             $data->delete();
             return redirect('admin/manage_banner');
         }
@@ -1844,7 +1901,8 @@ class MainController extends Controller
 
     function approve_cis_form_show(){
         if(session()->has('user')){
-            return view('approve_cis_form');
+            $msps = DB::table('cis_data')->get();
+            return view('approve_cis_form', ['msps' => $msps]);
         }
         else{
             return redirect('admin');
@@ -1852,7 +1910,8 @@ class MainController extends Controller
     }
     function approve_pqf_form_show(){
         if(session()->has('user')){
-            return view('approve_pqf_form');
+            $msps = DB::table('pqf_data')->get();
+            return view('approve_pqf_form', ['msps' => $msps]);
         }
         else{
             return redirect('admin');
@@ -1860,7 +1919,8 @@ class MainController extends Controller
     }
     function approve_ilrf_form_show(){
         if(session()->has('user')){
-            return view('approve_ilrf_form');
+            $msps = IlrfData::all();
+            return view('approve_ilrf_form', ['msps' => $msps]);
         }
         else{
             return redirect('admin');
@@ -1868,7 +1928,8 @@ class MainController extends Controller
     }
     function approve_inspection_show(){
         if(session()->has('user')){
-            return view('approve_inspection');
+            $msps = DB::table('inspections')->get();
+            return view('approve_inspection', ['msps' => $msps]);
         }
         else{
             return redirect('admin');
@@ -1876,7 +1937,8 @@ class MainController extends Controller
     }
     function approve_premiun_retainer_show(){
         if(session()->has('user')){
-            return view('approve_premiun_retainer');
+            $msps = DB::table('premiun_retainers')->get();
+            return view('approve_premiun_retainer', ['msps' => $msps]);
         }
         else{
             return redirect('admin');
@@ -1884,7 +1946,8 @@ class MainController extends Controller
     }
     function approve_closing_show(){
         if(session()->has('user')){
-            return view('approve_closing');
+            $msps = DB::table('closings')->get();
+            return view('approve_closing', ['msps' => $msps]);
         }
         else{
             return redirect('admin');
@@ -1892,7 +1955,8 @@ class MainController extends Controller
     }
     function approve_collateral_show(){
         if(session()->has('user')){
-            return view('approve_collateral');
+            $msps = DB::table('collaterals')->get();
+            return view('approve_collateral', ['msps' => $msps]);
         }
         else{
             return redirect('admin');
@@ -1900,17 +1964,127 @@ class MainController extends Controller
     }
     function approve_spv_show(){
         if(session()->has('user')){
-            return view('approve_spv');
+            $msps = DB::table('s_p_v_s')->get();
+            return view('approve_spv', ['msps' => $msps]);
         }
         else{
             return redirect('admin');
         }
     }
 
+    function change_cis_status($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = CisData::find($pid);
+            if($msp->status == 0){
+                $msp->status = 1;
+            }
+            else if($msp->status == 1){
+                $msp->status = 0;
+            }
+            $msp->update();
+            return redirect('admin/approve_cis_form');
+        }
+        else{
+            return redirect('admin');
+        }
+        
+    }
 
+    function change_ilrf_status($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = IlrfData::find($pid);
+            if($msp->status == 0){
+                $msp->status = 1;
+            }
+            else if($msp->status == 1){
+                $msp->status = 0;
+            }
+            $msp->update();
+            return redirect('admin/approve_ilrf_form');
+        }
+        else{
+            return redirect('admin');
+        }
+        
+    }
 
+    function change_pqf_status($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = PqfData::find($pid);
+            if($msp->status == 0){
+                $msp->status = 1;
+            }
+            else if($msp->status == 1){
+                $msp->status = 0;
+            }
+            $msp->update();
+            return redirect('admin/approve_pqf_form');
+        }
+        else{
+            return redirect('admin');
+        }
+        
+    }
 
+    function view_cis($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = CisData::find($pid);
+            return view('view_cis', ['msp'=> $msp]);
+        }
+        else{
+            return redirect('admin');
+        }
+        
+    }
+    function view_pqf($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = PqfData::find($pid);
+            return view('view_pqf', ['msp'=> $msp]);
+        }
+        else{
+            return redirect('admin');
+        }
+        
+    }
+    function view_ilrf($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = IlrfData::find($pid);
+            return view('view_ilrf', ['msp'=> $msp]); 
+        }
+        else{
+            return redirect('admin');
+        }
+        
+    }
 
+    function change_password_user_list_show($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = UserList::find($pid);
+            return view('change_password_user', ['msp'=> $msp]);
+        }
+        else{
+            return redirect('admin');
+        } 
+    }
+
+    function change_password_user_list(Request $req){
+        if(session()->has('user')){
+            $msp = UserList::where(['id'=>$req->id])->first();
+            $msp->password = $req->password;
+            $msp->update();
+            return redirect('admin/manage_user_list');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
 
 
     // function show_update_membership_ilrfinfo(){

@@ -15,7 +15,7 @@
                             <h3>Update Image</h3>
                         </div>
                         <div class="card-body">
-                            <form action="/admin/manage_gallery/update_image" method="POST">
+                            <form action="/admin/manage_gallery/update_image" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
@@ -30,7 +30,7 @@
                                         <img src="{{asset('gallery/images/'.$image->image)}}" style="height: 100px; width: 150px;">
                                         <br>
                                         <label for="">Upload Image</label>
-                                        <input type="file" class="form-control" name="upload_image" placeholder="Select Image">
+                                        <input type="file" class="form-control" name="update_image" placeholder="Select Image">
                                     </div>
                                 </div>
                         </div>

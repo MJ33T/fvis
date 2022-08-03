@@ -38,14 +38,11 @@
                                 <td style="text-align: center">{{$msp->date}}</td>
                                 <td style="text-align: center">{{$msp->code}}</td>
                                 <td style="text-align: center">
-                                    <div class="row">
-                                    <div class="col">
+                                    
                                     <a href="manage_memberid/update_memberid/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-warning">Update</a>
-                                    </div>
-                                    <div class="col">
+                                    
                                     <a href="manage_memberid/delete_memberid/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-danger">Delete</a>
-                                    </div>
-                                    </div>
+                                    
                                 </td>
                                 </tr>
                                 @endforeach

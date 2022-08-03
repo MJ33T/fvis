@@ -36,11 +36,11 @@
                                 <td style="text-align: center">{{$msp->email}}</td>
                                 <td style="text-align: center">{{$msp->password}}</td>
                                 <td style="text-align: center">{{$msp->created_at}}</td>
-                                <td style="text-align: center">{{$msp->status}}</td>
+                                <td style="text-align: center">{{$msp->status==1?'Active' : 'Deactive'}}</td>
                                 <td style="text-align: center">
                                     
-                                    <a href="manage_user_list/change_status_user_list/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-warning">Status</a>
-                                    
+                                    <a href="manage_user_list/change_status_user_list/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-primary">Status</a>
+                                    <a href="manage_user_list/change_password_user_list/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-warning">Change Password</a>
                                     <a href="manage_user_list/delete_user_list/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-danger">Delete</a>
                                     
                                 </td>

@@ -19,10 +19,11 @@
                             <thead>
                                 <tr>
                                 <th style="text-align: center">S.No</th>
+                                <th style="text-align: center">Subject</th>
                                 <th style="text-align: center">Name</th>
                                 <th style="text-align: center">Email</th>
-                                <th style="text-align: center">Mobile Number</th>
-                                <th style="text-align: center">Company Name</th>
+                                <th style="text-align: center">Mobile Number</th>                                
+                                <th style="text-align: center">Message</th>
                                 <th style="text-align: center">Action</th>
                                 
                                 </tr>
@@ -31,20 +32,18 @@
                                 @foreach($msps as $msp)
                                 <tr>
                                 <td style="text-align: center">{{$msp->id}}</td>
+                                <td style="text-align: center">{{$msp->company_name}}</td>
                                 <td style="text-align: center">{{$msp->name}}</td>
                                 <td style="text-align: center">{{$msp->email}}</td>
-                                <td style="text-align: center">{{$msp->number}}</td>
-                                <td style="text-align: center">{{$msp->company_name}}</td>
-
+                                <td style="text-align: center">{{$msp->number}}</td>                               
+                                <td style="text-align: center">{{$msp->message}}</td>
                                 <td style="text-align: center">
-                                    <div class="row">
-                                    <div class="col">
+                                    
                                     <a href="manage_enquiry/update_enquiry/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-warning">Update</a>
-                                    </div>
-                                    <div class="col">
+                                   
+                                    
                                     <a href="manage_enquiry/delete_enquiry/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-danger">Delete</a>
-                                    </div>
-                                    </div>
+                                    
                                 </td>
                                 </tr>
                                 @endforeach

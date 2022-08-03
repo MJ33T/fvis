@@ -87,7 +87,7 @@
                                             <div class="col-md">
                                                 <br>
                                                 <label for="">Request</label>
-                                                <textarea type="text" class="form-control" name="request" value="{{$msp->request}}"></textarea>
+                                                <textarea type="text" class="form-control" name="reque" value="{{$msp->reque}}"></textarea>
                                             </div>
                                         </div>
                                         <div class="row">

@@ -32,7 +32,7 @@
                                 <td style="text-align: center">{{$partner->id}}</td>
                                 <td style="text-align: center">{{$partner->title}}</td>
                                 <td style="text-align: center"><img src="{{asset('gallery/logos/'.$partner->logo)}}" style="height: 100px; width: 150px;"></td>
-                                <td style="text-align: center">{{$partner->status}}</td>
+                                <td style="text-align: center">{{$partner->status==1?'Active' : 'Deactive'}}</td>
                                 <td style="text-align: center">
                                     <div class="row">
                                     <div class="col">

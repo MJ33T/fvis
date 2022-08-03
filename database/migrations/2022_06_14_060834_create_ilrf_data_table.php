@@ -27,7 +27,7 @@ class CreateIlrfDataTable extends Migration
             $table->text('manag')->nullable();
             $table->longText('ownership')->nullable();
             $table->longText('guarantors')->nullable();
-            $table->longText('request')->nullable();
+            $table->longText('reque')->nullable();
             $table->longText('purpose')->nullable();
             $table->text('terms_type')->nullable();
             $table->text('terms_amount')->nullable();

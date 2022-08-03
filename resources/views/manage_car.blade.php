@@ -34,7 +34,7 @@
                                 <td style="text-align: center">{{$car->carname}}</td>
                                 <td style="text-align: center"><img src="{{asset('gallery/cars/'.$car->carimage)}}" style="height: 100px; width: 150px;"></td>
                                 <td style="text-align: center">{{$car->caroffer}}</td>
-                                <td style="text-align: center">{{$car->status}}</td>
+                                <td style="text-align: center">{{$car->status==1?'Active' : 'Deactive'}}</td>
                                 <td style="text-align: center">
                                     <div class="row">
                                     <div class="col">

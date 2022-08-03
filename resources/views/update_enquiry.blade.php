@@ -20,6 +20,9 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="hidden" name="id" value="{{$msp->id}}">
+                                        <label for="">Subject</label>
+                                        <input type="text" class="form-control" name="cmp" value="{{$msp->company_name}}">
+                                        <br>
                                         <label for="">Name</label>
                                         <input type="text" class="form-control" name="name" value="{{$msp->name}}">
                                         <br>
@@ -29,8 +32,8 @@
                                         <label for="">Mobile Number</label>
                                         <input type="text" class="form-control" name="number" value="{{$msp->number}}">
                                         <br>
-                                        <label for="">Company Name</label>
-                                        <input type="text" class="form-control" name="cmp" value="{{$msp->company_name}}">
+                                        <label for="">Message</label>
+                                        <textarea type="text" class="form-control" name="message" value="">{{$msp->message}}</textarea>
                                     </div>
                                 </div>
                                 

@@ -44,18 +44,16 @@
                                 <td style="text-align: center">{{$msp->offers}}</td>
                                 <td style="text-align: center">{{$msp->one_time_investors_introduction_fee}}</td>
                                 <td style="text-align: center">{{$msp->investment_monthly_income}}</td>
+                                <td></td>
                                 <td style="text-align: center">{{$msp->extension_option}}</td>
-                                <td style="text-align: center">{{$msp->status}}</td>
+                                <td style="text-align: center">{{$msp->status == null?'Deactive':'Active'}}</td>
 
                                 <td style="text-align: center">
-                                    <div class="row">
-                                    <div class="col">
+                                    
                                     <a href="manage_investment_block/update_investment_block/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-warning">Update</a>
-                                    </div>
-                                    <div class="col">
+                                    
                                     <a href="manage_investment_block/delete_investment_block/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-danger">Delete</a>
-                                    </div>
-                                    </div>
+                                    
                                 </td>
                                 </tr>
                                 @endforeach

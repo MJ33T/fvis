@@ -34,16 +34,13 @@
                                 <td style="text-align: center">{{$project->title}}</td>
                                 <td style="text-align: center">{{$project->content}}</td>
                                 <td style="text-align: center"><img src="{{asset('gallery/projects/'.$project->image)}}" style="height: 100px; width: 150px;"></td>
-                                <td style="text-align: center">{{$project->status}}</td>
+                                <td style="text-align: center">{{$project->status==1?'Active' : 'Deactive'}}</td>
                                 <td style="text-align: center">
-                                    <div class="row">
-                                    <div class="col">
+                                
                                     <a href="manage_project/update_project/{{Crypt::encrypt($project['id'])}}" type="submit" class="btn btn-warning">Update</a>
-                                    </div>
-                                    <div class="col">
+                                   
                                     <a href="manage_project/delete_project/{{Crypt::encrypt($project['id'])}}" type="submit" class="btn btn-danger">Delete</a>
-                                    </div>
-                                    </div>
+                            
                                 </td>
                                 </tr>
                                 @endforeach

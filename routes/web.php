@@ -195,9 +195,15 @@ Route::get('/admin/manage_acceptance/delete_acceptance/{id}', [MainController::c
 
 Route::get('/admin/manage_user_list', [MainController::class, 'show_user_list']);
 
-Route::post('manage_user_list/change_status_user_list/{id}', [MainController::class, 'change_status_user_list']);
+Route::post('/admin/manage_user_list/change_status_user_list/{id}', [MainController::class, 'change_status_user_list']);
 
 Route::get('/admin/manage_user_list/delete_user_list/{id}', [MainController::class, 'delete_user_list']);
+
+
+Route::get('/admin/manage_user_list/change_password_user_list/{id}', [MainController::class, 'change_password_user_list_show']);
+
+Route::post('/admin/manage_user_list/change_password_user_list', [MainController::class, 'change_password_user_list']);
+
 
 
 Route::get('/admin/manage_banner', [MainController::class, 'show_banner']);
@@ -290,6 +296,20 @@ Route::get('/admin/approve_premiun_retainer', [MainController::class, 'approve_p
 Route::get('/admin/approve_closing', [MainController::class, 'approve_closing_show']);
 Route::get('/admin/approve_collateral', [MainController::class, 'approve_collateral_show']);
 Route::get('/admin/approve_spv', [MainController::class, 'approve_spv_show']);
+
+
+Route::get('/admin/approve_cis_form/change_status/{id}', [MainController::class, 'change_cis_status']);
+Route::get('/admin/approve_ilrf_form/change_status/{id}', [MainController::class, 'change_ilrf_status']);
+Route::get('/admin/approve_pqf_form/change_status/{id}', [MainController::class, 'change_pqf_status']);
+
+Route::get('/admin/approve_cis_form/view_cis/{id}', [MainController::class, 'view_cis']);
+Route::get('/admin/approve_ilrf_form/view_ilrf/{id}', [MainController::class, 'view_ilrf']);
+Route::get('/admin/approve_pqf_form/view_pqf/{id}', [MainController::class, 'view_pqf']);
+
+
+
+
+
 
 
 

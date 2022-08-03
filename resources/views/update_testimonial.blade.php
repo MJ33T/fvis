@@ -15,7 +15,7 @@
                             <h3>Update Membership Plan</h3>
                         </div>
                         <div class="card-body">
-                            <form action="/admin/manage_testimonial/update_testimonial" method="POST">
+                            <form action="/admin/manage_testimonial/update_testimonial" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">

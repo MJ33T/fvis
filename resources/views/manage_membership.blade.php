@@ -1,3 +1,9 @@
+@php
+  use App\Models\CisData;
+  use App\Models\PqfData;
+  use App\Models\IlrfData;
+@endphp
+
 @extends('master')
 @section('master')
 
@@ -12,7 +18,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Manage Social Links</h3>
+                            <h3>Manage Membership User</h3>
                         </div>
                         <div class="card-body table-responsive p-0" style="height: 630px;">
                             <table class="table table-head-fixed text-nowrap">
@@ -43,27 +49,39 @@
                                         <ul class="dropdown-menu">
             
                                           <!-- <li class="divider"></li> -->
+                                          
                                           <li>
                                             <a href="manage_membership/update_membership_perinfo/{{Crypt::encrypt($msp['user_id'])}}"> Personal Information</a>
                                           </li>
-            
+                                          
                                           <li class="divider"></li>
                                           <li>
                                             <a href="manage_membership/update_membership_cominfo/{{Crypt::encrypt($msp['user_id'])}}"> Company Information</a>
                                           </li>
                                           <li class="divider"></li>
+                                          
                                           <li>
                                             <a href="manage_membership/update_membership_cisinfo/{{Crypt::encrypt($msp['user_id'])}}"> CIS Details</a>
                                           </li>
+                                          
+                                          <li></li>
+                                          
+                                         
+                                            
                                           <li class="divider"></li>
+                                          
+                                          
                                           <li>
                                             <a href="manage_membership/update_membership_pqfinfo/{{Crypt::encrypt($msp['user_id'])}}"> PQF Details</a>
                                           </li>
                                           <li class="divider"></li>
+                                          
+                                          
+                                          <li></li>
                                           <li>
                                             <a href="manage_membership/update_membership_ilrfinfo/{{Crypt::encrypt($msp['user_id'])}}"> ILRF Details</a>
                                           </li>
-            
+                                         
                                         </ul>
                                       </div>
                                     {{-- <a href="manage_social/update_social/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-warning">Update</a> --}}

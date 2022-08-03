@@ -30,7 +30,7 @@
                                 <tr>
                                 <td style="text-align: center">{{$msp->id}}</td>
                                 <td style="text-align: center">{{$msp->subs_email}}</td>
-                                <td style="text-align: center">{{$msp->status}}</td>
+                                <td style="text-align: center">{{$msp->status==1?'Active' : 'Deactive'}}</td>
 
                                 <td style="text-align: center">
                                     <div class="row">

@@ -1,3 +1,6 @@
+@php
+    use App\Models\MembershipUser;
+@endphp
 @extends('master')
 @section('master')
 
@@ -21,19 +24,26 @@
                                 <th style="text-align: center">S.No</th>
                                 <th style="text-align: center">Name</th>
                                 <th style="text-align: center">User Name</th>
-                                <th style="text-align: center">Form</th>
                                 <th style="text-align: center">Status</th>
                                 <th style="text-align: center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($msps as $msp)
+                                @php            
+                                    $data = MembershipUser::where(['user_id'=>$msp->user_id])->first();     
+                                @endphp
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                    <td style="text-align: center">{{$msp->id}}</td>
+                                    <td style="text-align: center">{{$data->f_name.' '.$data->l_name}}</td>
+                                    <td style="text-align: center">{{$data->email}}</td>
+                                    <td style="text-align: center">{{($msp->status==1)?'Active' : 'Deactive'}}</td>
+                                    <td style="text-align: center">
+                                        <a href="approve_ilrf_form/view_ilrf/{{Crypt::encrypt($msp->id)}}" type="submit" class="btn btn-primary">View</a>  
+                                        <a href="approve_ilrf_form/change_status/{{Crypt::encrypt($msp->id)}}" type="submit" class="btn btn-warning">Change Status</a>  
+                                    </td>
+                                </tr>    
+                                @endforeach
                             </tbody>
                             </table>
                         </div>

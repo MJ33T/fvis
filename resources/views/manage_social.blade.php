@@ -32,7 +32,7 @@
                                 <td style="text-align: center">{{$msp->id}}</td>
                                 <td style="text-align: center">{{$msp->title}}</td>
                                 <td style="text-align: center">{{$msp->social_url}}</td>
-                                <td style="text-align: center">{{$msp->status}}</td>
+                                <td style="text-align: center">{{$msp->status == 1?'Active' : 'Deactive'}}</td>
                                 <td style="text-align: center">
                                     
                                     <a href="manage_social/update_social/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-warning">Update</a>

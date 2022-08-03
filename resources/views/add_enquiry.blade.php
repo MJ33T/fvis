@@ -19,6 +19,9 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <label for="">Subject</label>
+                                        <input type="text" class="form-control" name="cmp">
+                                        <br>
                                         <label for="">Name</label>
                                         <input type="text" class="form-control" name="name">
                                         <br>
@@ -28,8 +31,8 @@
                                         <label for="">Mobile Number</label>
                                         <input type="text" class="form-control" name="number">
                                         <br>
-                                        <label for="">Company Name</label>
-                                        <input type="text" class="form-control" name="cmp">
+                                        <label for="">Message</label>
+                                        <textarea type="text" class="form-control" name="message"></textarea>
                                     </div>
                                 </div>
                                 

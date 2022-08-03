@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Gallery;
+use Illuminate\Support\Facades\File;
 use Session;
 
 class ImageController extends Controller
@@ -61,11 +62,15 @@ class ImageController extends Controller
     function update_image(Request $req){
         if(session()->has('user')){
             $image = Gallery::find($req->id);
-            if($req->file('upload_image')){
-                $file= $req->file('upload_image');
-                $filename= date('YmdHi').$file->getClientOriginalName();
-                $file-> move(public_path('public/Images'), $filename);
-                $image['image']= $filename;
+            if($req->file('update_image')){
+                $destination = public_path('gallery/images/').$image->image;
+                if(File::exists($destination)){
+                    File::delete($destination);
+                }
+                $file= $req->file('update_image');
+                $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
+                $file->move(public_path('gallery/images/'), $filename);
+                $image->image= $filename;
             }
             $image->title = $req->title;
             $image->chinese_title = $req->chinese_title;
@@ -83,7 +88,10 @@ class ImageController extends Controller
         if(session()->has('user')){
             $pid = \Crypt::decrypt($id);
             $data = Gallery::find($pid);
-
+            $destination = public_path('gallery/images/').$data->image;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
             $data->delete();
             return redirect('admin/manage_gallery');
         }

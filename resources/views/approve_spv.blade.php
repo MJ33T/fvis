@@ -1,3 +1,6 @@
+@php
+    use App\Models\UserList;
+@endphp
 @extends('master')
 @section('master')
 
@@ -26,13 +29,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($msps as $msp)
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                    <td style="text-align: center">{{$msp->id}}</td>
+                                    <td style="text-align: center">{{$msp->spv_type}}</td>
+                                    <td style="text-align: center">
+                                        @php
+                                            $user = UserList::find($msp->user_id);
+                                        @endphp
+                                        {{$user->email}}
+                                    </td>
+                                    <td style="text-align: center">{{$msp->status==1?'Active' : 'Deactive'}}</td>
+                                    <td style="text-align: center">
+                                        <a href="http://fvis-userpanel.ketekmall.com/public/files/spv/{{$msp->spv_doc}}" type="submit" class="btn btn-warning">View</a>    
+                                    </td>
+                                </tr>    
+                                @endforeach
                             </tbody>
                             </table>
                         </div>

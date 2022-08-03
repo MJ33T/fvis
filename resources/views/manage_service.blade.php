@@ -34,16 +34,12 @@
                                 <td style="text-align: center">{{$service->title}}</td>
                                 <td style="text-align: center">{{$service->content}}</td>
                                 <td style="text-align: center"><img src="{{asset('gallery/services/'.$service->image)}}" style="height: 100px; width: 150px;"></td>
-                                <td style="text-align: center">{{$service->status}}</td>
+                                <td style="text-align: center">{{$service->status==1?'Active' : 'Deactive'}}</td>
                                 <td style="text-align: center">
-                                    <div class="row">
-                                    <div class="col">
                                     <a href="manage_service/update_service/{{Crypt::encrypt($service['id'])}}" type="submit" class="btn btn-warning">Update</a>
-                                    </div>
-                                    <div class="col">
+                         
                                     <a href="manage_service/delete_service/{{Crypt::encrypt($service['id'])}}" type="submit" class="btn btn-danger">Delete</a>
-                                    </div>
-                                    </div>
+                                    
                                 </td>
                                 </tr>
                                 @endforeach

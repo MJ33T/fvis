@@ -15,7 +15,7 @@
                             <h3>Update Partner</h3>
                         </div>
                         <div class="card-body">
-                            <form action="/admin/manage_partner/update_partner" method="POST">
+                            <form action="/admin/manage_partner/update_partner" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">

@@ -22,7 +22,7 @@
       
           <!-- Icon -->
           <div class="fadeIn first">
-            {{-- <img src="" id="icon" alt="User Icon" /> --}}
+            <img src="{{asset('gallery/newlogo.png')}}" id="icon" alt="User Icon" style="width: 150px; height:100px"  />
             <h1>FVIS | Login</h1>
           </div>
       

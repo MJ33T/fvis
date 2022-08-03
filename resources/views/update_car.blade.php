@@ -15,7 +15,7 @@
                             <h3>Update Image</h3>
                         </div>
                         <div class="card-body">
-                            <form action="/admin/manage_car/update_car" method="POST">
+                            <form action="/admin/manage_car/update_car" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">

@@ -35,8 +35,8 @@
                                 <td style="text-align: center">{{$msp->name}}</td>
                                 <td style="text-align: center">{{$msp->company_name}}</td>
                                 <td style="text-align: center">{{$msp->review}}</td>
-                                <td style="text-align: center"><img src="{{asset('gallery/testimonial/med_image/'.$msp->med_image)}}" style="height: 100px; width: 150px;"></td>
-                                <td style="text-align: center">{{$msp->status}}</td>
+                                <td style="text-align: center"><img src="{{asset('gallery/testimonial/med_img/'.$msp->medal_image)}}" style="height: 100px; width: 150px;"></td>
+                                <td style="text-align: center">{{$msp->status==1?'Active' : 'Deactive'}}</td>
                                 <td style="text-align: center">
                                     
                                     <a href="manage_testimonial/update_testimonial/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-warning">Update</a>
