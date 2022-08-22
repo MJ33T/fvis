@@ -15,7 +15,7 @@
                             <h3>Update Investment Block</h3>
                         </div>
                         <div class="card-body">
-                            <form action="/admin/manage_membership_plan/update_membership_plan" method="POST">
+                            <form action="/admin/manage_investment_block/update_investment_block" method="POST">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">

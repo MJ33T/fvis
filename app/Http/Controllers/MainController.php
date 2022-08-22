@@ -556,7 +556,7 @@ class MainController extends Controller
             $msp->extension_option = $req->eo;
             $msp->offers = $req->of;
             $msp->update();
-            return redirect('admin/update_investment_block');
+            return redirect('admin/manage_investment_block');
 
         }
         else{
@@ -1645,8 +1645,6 @@ class MainController extends Controller
 
 
 
-
-
     function update_membership_ilrfinfo_show($id){
         if(session()->has('user')){
             $pid = \Crypt::decrypt($id);
@@ -1661,7 +1659,7 @@ class MainController extends Controller
     function update_membership_ilrfinfo(Request $req){
         if(session()->has('user')){
             $msp = IlrfData::where(['user_id'=>$req->user_id])->first();
-            
+
             $msp->primary_off = $req->primary_off;
             $msp->prepared_by = $req->prepared_by;
             $msp->date_pre = $req->date_pre;
@@ -1672,11 +1670,11 @@ class MainController extends Controller
             $msp->manag = $req->manag;
             $msp->ownership = $req->ownership;
             $msp->guarantors = $req->guarantors;
-            $msp->request = $req->request;
+            $msp->reque = $req->reque;
             $msp->purpose = $req->purpose;
             $msp->terms_type = $req->terms_type;
             $msp->terms_amount = $req->terms_amount;
-            $msp->terms_rate = $req->terms_rate;
+            $msp->terms_rate = $req->terms_rate; 
             $msp->terms_term = $req->terms_term;
             $msp->terms_type2 = $req->terms_type2;
             $msp->terms_amount2 = $req->terms_amount2;
@@ -1707,7 +1705,7 @@ class MainController extends Controller
             $msp->colla_app4 = $req->colla_app4;
             $msp->colla_debt4 = $req->colla_debt4;
             $msp->colla_avail4 = $req->colla_avail4;
-            $msp->coll_ltv4 = $req->coll_ltv4;
+            $msp->coll_ltv4 = $req->coll_ltv4;   
             $msp->colla_app5 = $req->colla_app5;
             $msp->colla_debt5 = $req->colla_debt5;
             $msp->colla_avail5 = $req->colla_avail5;
@@ -1888,7 +1886,7 @@ class MainController extends Controller
             $msp->org_papers = $req->org_papers;
             $msp->other2 = $req->other2;
             $msp->other_text = $req->other_text;
-           
+            
             $msp->update();
             return redirect('admin/manage_membership');
 

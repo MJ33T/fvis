@@ -302,13 +302,13 @@
                   </p>
                 </a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="#" class="nav-link">
                   <p>
                     Membership Request
                   </p>
                 </a>
-              </li>
+              </li> --}}
             </ul>
           </li>
           <li class="nav-item menu-close">
@@ -329,7 +329,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item menu-close">
+          {{-- <li class="nav-item menu-close">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>
@@ -346,7 +346,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> --}}
           <li class="nav-item menu-close">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-line-chart"></i>

@@ -24,7 +24,7 @@
                                                 <h5 style="color: #00a2ff">Internal Loan Review</h5>
                                             </div>
                                             <div class="col-md">
-                                                <input type="hidden" name="user_id" value="">
+                                                <input type="hidden" name="user_id" value="{{$msp->user_id}}">
                                                 <label for="">Primary Officer</label>
                                                 <input type="text" class="form-control" name="primary_off" value="{{$msp->primary_off}}">
                                             </div>
@@ -44,7 +44,7 @@
                                             </div>
                                             <div class="col-md">
                                                 <label for="">Borrower</label>
-                                                <textarea type="text" class="form-control" name="loan_request" value="{{$msp->loan_request}}"></textarea>
+                                                <textarea type="text" class="form-control" name="loan_request">{{$msp->loan_request}}</textarea>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -80,21 +80,21 @@
                                             <div class="col-md">
                                                 <br>
                                                 <label for="">Guarantors: Typically the owner of the business</label>
-                                                <textarea type="text" class="form-control" name="guarantors" value="{{$msp->guarantors}}"></textarea>
+                                                <textarea type="text" class="form-control" name="guarantors" >{{$msp->guarantors}}</textarea>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md">
                                                 <br>
                                                 <label for="">Request</label>
-                                                <textarea type="text" class="form-control" name="reque" value="{{$msp->reque}}"></textarea>
+                                                <textarea type="text" class="form-control" name="reque" >{{$msp->reque}}</textarea>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md">
                                                 <br>
                                                 <label for="">Purpose</label>
-                                                <textarea type="text" class="form-control" name="purpose" value="{{$msp->purpose}}"></textarea>
+                                                <textarea type="text" class="form-control" name="purpose">{{$msp->purpose}}</textarea>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -181,7 +181,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label for="">Collateral Description</label>
-                                                <textarea type="text" class="form-control" name="source_desi" value="{{$msp->source_desi}}"></textarea>
+                                                <textarea type="text" class="form-control" name="source_desi">{{$msp->source_desi}}</textarea>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -337,14 +337,14 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label for="">Flood Hazard</label>
-                                                <textarea type="text" class="form-control" name="flood_haz" value="{{$msp->flood_haz}}"></textarea>
+                                                <textarea type="text" class="form-control" name="flood_haz">{{$msp->flood_haz}}</textarea>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label for="">Environmental Concerns</label>
-                                                <textarea type="text" class="form-control" name="envi_concer" value="{{$msp->envi_concer}}"></textarea>
+                                                <textarea type="text" class="form-control" name="envi_concer">{{$msp->envi_concer}}</textarea>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -473,7 +473,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label for="">Bow Payment History</label>
-                                                <textarea type="text" class="form-control" name="bow_pay_his" value="{{$msp->bow_pay_his}}"></textarea> 
+                                                <textarea type="text" class="form-control" name="bow_pay_his">{{$msp->bow_pay_his}}</textarea> 
                                             </div>
                                         </div>
                                         <div class="row">
@@ -483,22 +483,22 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <label for=""># of Days at Zero</label>
-                                                <textarea type="text" class="form-control" name="days_zero" value="{{$msp->days_zero}}"></textarea>
+                                                <textarea type="text" class="form-control" name="days_zero">{{$msp->days_zero}}</textarea>
                                             </div>
                                             <div class="col-md-12">
                                                 <br>
                                                 <label for="">Other Debts</label>
-                                                <textarea type="text" class="form-control" name="other_debts" value="{{$msp->other_debts}}"></textarea>
+                                                <textarea type="text" class="form-control" name="other_debts">{{$msp->other_debts}}</textarea>
                                             </div>
                                             <div class="col-md-12">
                                                 <br>
                                                 <label for="">Low Balance</label>
-                                                <textarea type="text" class="form-control" name="low_bal" value="{{$msp->low_bal}}"></textarea>
+                                                <textarea type="text" class="form-control" name="low_bal">{{$msp->low_bal}}</textarea>
                                             </div>
                                             <div class="col-md-12">
                                                 <br>
                                                 <label for="">Other Debts</label>
-                                                <textarea type="text" class="form-control" name="othter_debts2" value="{{$msp->othter_debts2}}"></textarea>
+                                                <textarea type="text" class="form-control" name="othter_debts2">{{$msp->othter_debts2}}</textarea>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -617,21 +617,21 @@
                                         <div class="row">
                                             <div class="col-md">
                                                 <label for="">Average Cost of Funds</label>
-                                                <textarea type="text" class="form-control" name="ave_cost_fund" value="{{$msp->ave_cost_fund}}"></textarea>
+                                                <textarea type="text" class="form-control" name="ave_cost_fund">{{$msp->ave_cost_fund}}</textarea>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row">
                                             <div class="col-md">
                                                 <label for="">Trust Relationship</label>
-                                                <textarea type="text" class="form-control" name="trust_relati" value="{{$msp->trust_relati}}"></textarea>
+                                                <textarea type="text" class="form-control" name="trust_relati">{{$msp->trust_relati}}</textarea>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row">
                                             <div class="col-md">
                                                 <label for="">Background Information</label>
-                                                <textarea type="text" class="form-control" name="back_info" value="{{$msp->back_info}}"></textarea>
+                                                <textarea type="text" class="form-control" name="back_info">{{$msp->back_info}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -1082,14 +1082,14 @@
                                 <div class="row">
                                     <div class="col-md-10">
                                         <label for="">BUSINESS BACKGROUND INFORMATION</label>
-                                        <textarea type="text" class="form-control" name="bussi_back" value="{{$msp->bussi_back}}"></textarea>
+                                        <textarea type="text" class="form-control" name="bussi_back" >{{$msp->bussi_back}}</textarea>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-md-10">
                                         <label for="">PERSONAL BUSINESS EXPERIENCE</label>
-                                        <textarea type="text" class="form-control" name="per_bussi_exp" value="{{$msp->per_bussi_exp}}"></textarea>
+                                        <textarea type="text" class="form-control" name="per_bussi_exp">{{$msp->per_bussi_exp}}</textarea>
                                     </div>
                                 </div>
                                 <br>
@@ -1241,7 +1241,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <br>
-                                        <textarea type="text" class="form-control" name="other_text" value="{{$msp->other_text}}"></textarea>
+                                        <textarea type="text" class="form-control" name="other_text">{{$msp->other_text}}</textarea>
                                     </div>
                                 </div>
 
