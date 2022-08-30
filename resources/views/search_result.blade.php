@@ -12,24 +12,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h3>User List</h3>
-                                </div>
-                                <div class="col-md-6">
-                                    <form action="/admin/search_user" method="POST">
-                                        @csrf
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" name="search" placeholder="Search">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <button type="submit" class="btn btn-primary" >Search</button>
-                                        </div>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
+                            <h3>Search Result</h3>
                         </div>
                         <div class="card-body table-responsive p-0" style="height: 630px;">
                             <table class="table table-head-fixed text-nowrap">
@@ -46,7 +29,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($msps as $msp)
+                                @foreach($results as $msp)
                                 <tr>
                                 <td style="text-align: center">{{$msp->id}}</td>
                                 <td style="text-align: center">{{$msp->f_name.' '.$msp->l_name}}</td>
@@ -68,9 +51,9 @@
                         </div>
                         <div class="card-footer">
                             
-                            <span class="pag" style="float: right">
-                                {{ $msps->links('pagination::bootstrap-4') }}
-                            </span>
+                            {{-- <span class="pag" style="float: right">
+                                {{ $results->links('pagination::bootstrap-4') }}
+                            </span> --}}
                         </div>
                     </div>
 

@@ -306,6 +306,8 @@ Route::get('/admin/approve_cis_form/view_cis/{id}', [MainController::class, 'vie
 Route::get('/admin/approve_ilrf_form/view_ilrf/{id}', [MainController::class, 'view_ilrf']);
 Route::get('/admin/approve_pqf_form/view_pqf/{id}', [MainController::class, 'view_pqf']);
 
+Route::post('/admin/search_user', [MainController::class, 'search_user']);
+
 
 
 

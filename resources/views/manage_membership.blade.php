@@ -19,6 +19,12 @@
                     <div class="card">
                         <div class="card-header">
                             <h3>Manage Membership User</h3>
+                            @if($message = Session::get('error'))
+                              <div class="alert alert-danger alert-block" style="margin: 0 30%; text-align: center" >
+                                
+                                <strong style="">{{ $message }}</strong>
+                              </div>
+                            @endif
                         </div>
                         <div class="card-body table-responsive p-0" style="height: 630px;">
                             <table class="table table-head-fixed text-nowrap">

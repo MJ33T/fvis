@@ -1124,7 +1124,7 @@ class MainController extends Controller
 
     function show_user_list(){
         if(session()->has('user')){
-            $ibs = UserList::paginate(10);
+            $ibs = UserList::orderBy('created_at', 'DESC')->paginate(10);
             return view('manage_user_list', ['msps'=>$ibs]);
         }
         else{
@@ -1516,7 +1516,13 @@ class MainController extends Controller
         if(session()->has('user')){
             $pid = \Crypt::decrypt($id);
             $msp = CisData::where(['user_id'=>$pid])->first();
-            return view('update_membership_cisinfo', ['msp'=> $msp]);
+            if($msp == null){
+                return back()->with('error', 'Not Yet Apporved');
+            }
+            else{
+                return view('update_membership_cisinfo', ['msp'=> $msp]);
+            }
+            
         }
         else{
             return redirect('admin');
@@ -1601,7 +1607,13 @@ class MainController extends Controller
         if(session()->has('user')){
             $pid = \Crypt::decrypt($id);
             $msp = PqfData::where(['user_id'=>$pid])->first();
-            return view('update_membership_pqfinfo', ['msp'=> $msp]);
+            if($msp == null){
+                return back()->with('error', 'Not Yet Apporved');
+            }
+            else{
+                return view('update_membership_pqfinfo', ['msp'=> $msp]);
+            }
+            
         }
         else{
             return redirect('admin');
@@ -1649,7 +1661,13 @@ class MainController extends Controller
         if(session()->has('user')){
             $pid = \Crypt::decrypt($id);
             $msp = IlrfData::where(['user_id'=>$pid])->first();
-            return view('update_membership_ilrfinfo', ['msp'=> $msp]);
+            if($msp == null){
+                return back()->with('error', 'Not Yet Apporved');
+            }
+            else{
+                return view('update_membership_ilrfinfo', ['msp'=> $msp]);
+            }
+            
         }
         else{
             return redirect('admin');
@@ -1900,6 +1918,7 @@ class MainController extends Controller
     function approve_cis_form_show(){
         if(session()->has('user')){
             $msps = DB::table('cis_data')->get();
+            
             return view('approve_cis_form', ['msps' => $msps]);
         }
         else{
@@ -2082,6 +2101,23 @@ class MainController extends Controller
         else{
             return redirect('admin');
         }
+    }
+
+    function search_user(Request $req){
+        if(session()->has('user')){
+            $search = $req->search;
+            $results = UserList::query()
+            ->where('f_name', 'LIKE', "%{$search}%")
+            ->orWhere('l_name', 'LIKE', "%{$search}%")
+            ->orWhere('email', 'LIKE', "%{$search}%")
+            ->orWhere('acceptance_code', 'LIKE', "%{$search}%")
+            ->get();
+            return view('search_result', ['results' => $results]);
+        }
+        else{
+            return redirect('admin');
+        }
+        
     }
 
 
