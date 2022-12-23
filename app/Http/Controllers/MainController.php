@@ -24,6 +24,7 @@ use App\Models\MembershipUser;
 use App\Models\CisData;
 use App\Models\PqfData;
 use App\Models\IlrfData;
+use App\Models\OtherService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
@@ -2112,12 +2113,137 @@ class MainController extends Controller
             ->orWhere('email', 'LIKE', "%{$search}%")
             ->orWhere('acceptance_code', 'LIKE', "%{$search}%")
             ->get();
-            return view('search_result', ['results' => $results]);
+            return view('search_result_user', ['results' => $results]);
         }
         else{
             return redirect('admin');
         }
         
+    }
+
+    function search_acceptance(Request $req){
+        if(session()->has('user')){
+            $search = $req->search;
+            $results = Acceptance::query()
+            ->where('u_name', 'LIKE', "%{$search}%")
+            ->orWhere('a_code', 'LIKE', "%{$search}%")
+            ->get();
+            return view('search_result_acceptance', ['results' => $results]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function manage_other_service_view(){
+        if(session()->has('user')){
+            $service = OtherService::paginate(10);
+            return view('manage_other_service',['services' => $service]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function add_new_service_view(){
+        if(session()->has('user')){
+            return view('add_new_service');
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function add_other_service(Request $req){
+        if(session()->has('user')){
+            $otherservice = new OtherService();
+            if($req->file('upload_image')){
+                $file= $req->file('upload_image');
+                $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
+                $file-> move(public_path('gallery/otherservice/'), $filename);
+                $otherservice['image']= $filename;
+            }
+            $otherservice->title = $req->title;
+            $otherservice->content = $req->content;
+            $otherservice->status = 1;
+            if($otherservice->save()){
+                return redirect('admin/manage_other_service');
+            }
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function change_status_other_service($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = OtherService::find($pid);
+            if($msp->status == 0){
+                $msp->status = 1;
+            }
+            else if($msp->status == 1){
+                $msp->status = 0;
+            }
+            $msp->update();
+            return back();
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function delete_other_service($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = OtherService::find($pid);
+            $destination = public_path('gallery/otherservice/').$msp->image;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            if($msp->delete()){
+                return back();
+            }
+            
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function edit_other_service($id){
+        if(session()->has('user')){
+            $pid = \Crypt::decrypt($id);
+            $msp = OtherService::find($pid);
+            return view('update_other_service', ['services' => $msp]);
+        }
+        else{
+            return redirect('admin');
+        }
+    }
+
+    function update_other_service(Request $req){
+        if(session()->has('user')){
+            $service = OtherService::find($req->id);
+            $service->title = $req->title;
+            if($req->file('upload_image')){
+                $destination = public_path('gallery/otherservice/').$service->image;
+                if(File::exists($destination)){
+                    File::delete($destination);
+                }
+                $file= $req->file('upload_image');
+                $filename= date('YmdHi').'.'.$file->getClientOriginalExtension();
+                $file-> move(public_path('gallery/otherservice/'), $filename);
+                $service->image= $filename;
+            }
+            $service->content = $req->content;
+            if($service->update()){
+                return redirect('admin/manage_other_service');
+            }
+        }
+        else{
+            return redirect('admin');
+        }
     }
 
 

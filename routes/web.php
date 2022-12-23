@@ -307,7 +307,15 @@ Route::get('/admin/approve_ilrf_form/view_ilrf/{id}', [MainController::class, 'v
 Route::get('/admin/approve_pqf_form/view_pqf/{id}', [MainController::class, 'view_pqf']);
 
 Route::post('/admin/search_user', [MainController::class, 'search_user']);
+Route::post('/admin/search_acceptance', [MainController::class, 'search_acceptance']);
 
+Route::get('/admin/manage_other_service', [MainController::class, 'manage_other_service_view']);
+Route::get('/admin/add_new_service', [MainController::class, 'add_new_service_view']);
+Route::post('/admin/add_other_service', [MainController::class, 'add_other_service']);
+Route::get('/admin/manage_other_service/update_other_service/{id}', [MainController::class, 'change_status_other_service']);
+Route::get('/admin/manage_other_service/delete_other_service/{id}', [MainController::class, 'delete_other_service']);
+Route::get('/admin/manage_other_service/edit_other_service/{id}', [MainController::class, 'edit_other_service']);
+Route::post('/admin/manage_other_service/updated_other_service', [MainController::class, 'update_other_service']);
 
 
 

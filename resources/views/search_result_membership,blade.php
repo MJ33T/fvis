@@ -18,7 +18,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Manage Membership User</h3>
+                            <h3>Search Result</h3>
                             @if($message = Session::get('error'))
                               <div class="alert alert-danger alert-block" style="margin: 0 30%; text-align: center" >
                                 
@@ -40,7 +40,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($msps as $msp)
+                                @foreach($results as $msp)
                                 <tr>
                                 <td style="text-align: center">{{$msp->id}}</td>
                                 <td style="text-align: center">{{$msp->f_name.' '.$msp->l_name}}</td>
@@ -98,11 +98,7 @@
                             </tbody>
                             </table>
                         </div>
-                        <div class="card-footer">
-                            <span class="pag" style="float: right">
-                                {{ $msps->links('pagination::bootstrap-4') }}
-                            </span>
-                        </div>
+                        
                     </div>
 
                 </div>

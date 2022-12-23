@@ -40,14 +40,12 @@
                                 <td style="text-align: center">{{$msp->investment_duration}}</td>
                                 <td style="text-align: center">{{$msp->monthly_fix_income}}</td>
                                 <td style="text-align: center">
-                                    <div class="row">
-                                    <div class="col">
+                                    
                                     <a href="manage_membership_plan/update_membership_plan/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-warning">Update</a>
-                                    </div>
-                                    <div class="col">
+                                    
+                                    
                                     <a href="manage_membership_plan/delete_membership_plan/{{Crypt::encrypt($msp['id'])}}" type="submit" class="btn btn-danger">Delete</a>
-                                    </div>
-                                    </div>
+                                    
                                 </td>
                                 </tr>
                                 @endforeach

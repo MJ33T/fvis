@@ -405,6 +405,24 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-question-circle"></i>
               <p>
+                Manage Other Service
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/manage_other_service" class="nav-link">
+                  <p>
+                    Manage Other Service
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item menu-close">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-question-circle"></i>
+              <p>
                 Generate A-Code
                 <i class="right fa fa-angle-left"></i>
               </p>

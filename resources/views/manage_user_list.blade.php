@@ -21,10 +21,10 @@
                                         @csrf
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" name="search" placeholder="Search">
+                                            <input type="text" class="form-control search_input" name="search" placeholder="Search">
                                         </div>
                                         <div class="col-md-6">
-                                            <button type="submit" class="btn btn-primary" >Search</button>
+                                            <button type="submit" class="btn btn-primary custom_btn" >Search</button>
                                         </div>
                                     </div>
                                     </form>
@@ -83,6 +83,12 @@
 <style>
     .w-5{
         display: inline;
+    }
+    .custom_btn{
+        margin-left: 80%
+    }
+    .search_input{
+        margin-left: 80%
     }
 </style>
 

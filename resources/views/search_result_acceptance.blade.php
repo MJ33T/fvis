@@ -12,24 +12,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h3>Acceptance Code List</h3>
-                                </div>
-                                <div class="col-md-6">
-                                    <form action="/admin/search_acceptance" method="POST">
-                                        @csrf
-                                    <div class="row custom_row">
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control search_input" name="search" placeholder="Search">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <button type="submit" class="btn btn-primary custom_btn" >Search</button>
-                                        </div>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div> 
+                            <h3>Search Result</h3>
                         </div>
                         <div class="card-body table-responsive p-0" style="height: 630px;">
                             <table class="table table-head-fixed text-nowrap">
@@ -44,7 +27,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($msps as $msp)
+                                @foreach($results as $msp)
                                 <tr>
                                 <td style="text-align: center">{{$msp->id}}</td>
                                 <td style="text-align: center">{{$msp->u_name}}</td>
@@ -61,12 +44,6 @@
                             </tbody>
                             </table>
                         </div>
-                        <div class="card-footer">
-                            <a href="add_acceptance" class="btn btn-primary">Add Acceptance Code</a>
-                            <span class="pag" style="float: right">
-                                {{ $msps->links('pagination::bootstrap-4') }}
-                            </span>
-                        </div>
                     </div>
 
                 </div>
@@ -78,12 +55,6 @@
 <style>
     .w-5{
         display: inline;
-    }
-    .custom_btn{
-        margin-left: 80%
-    }
-    .search_input{
-        margin-left: 80%
     }
 </style>
 
